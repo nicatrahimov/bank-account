@@ -1,6 +1,7 @@
 package com.rahimov.bankaccount.dto;
 
 import com.rahimov.bankaccount.enums.TransactionType;
+import com.rahimov.bankaccount.model.Account;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,10 +13,9 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TransactionDto {
+public class AccountTransactionDto {
     String id;
     TransactionType transactionType;
     BigDecimal amount;
     LocalDateTime transactionDate;
-    TransactionAccountDto account;
 }

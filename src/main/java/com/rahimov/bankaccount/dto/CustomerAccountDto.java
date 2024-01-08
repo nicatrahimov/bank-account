@@ -17,5 +17,5 @@ public class CustomerAccountDto {
     String id;
     BigDecimal balance;
     LocalDateTime creationDate;
-    Set<TransactionDto> transactions;
+    Set<AccountTransactionDto> transactions;
 }

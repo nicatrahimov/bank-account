@@ -15,4 +15,5 @@ public class CustomerDto {
     String id;
     String name;
     String surname;
+    Set<CustomerAccountDto> accounts;
 }
