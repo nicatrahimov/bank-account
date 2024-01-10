@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ public class Account {
     Customer customer;
 
     @OneToMany(mappedBy = "account",fetch = FetchType.LAZY)
-    Set<Transaction> transactions;
+    Set<Transaction> transactions = new HashSet<>();
 
 
     @Override

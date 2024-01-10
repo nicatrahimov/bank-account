@@ -1,8 +1,7 @@
 package com.rahimov.bankaccount.dto.converter;
 
-import com.rahimov.bankaccount.dto.AccountCustomerDto;
-import com.rahimov.bankaccount.dto.CustomerAccountDto;
-import com.rahimov.bankaccount.dto.CustomerDto;
+import com.rahimov.bankaccount.dto.response.AccountCustomerDto;
+import com.rahimov.bankaccount.dto.response.CustomerDto;
 import com.rahimov.bankaccount.model.Customer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -12,9 +11,9 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class CustomerDtoConverter {
-    private final AccountDtoConverter accountDtoConverter;
+    private final CustomerAccountDtoConverter converter;
 
-    public AccountCustomerDto toAccountCustomer(Customer customer){
+    protected AccountCustomerDto toAccountCustomer(Customer customer){
         return new AccountCustomerDto(customer.getId(),
                 customer.getName(),
                 customer.getSurname());
@@ -25,7 +24,7 @@ public class CustomerDtoConverter {
                 customer.getName(),
                 customer.getSurname(),
                 customer.getAccounts().stream()
-                        .map(accountDtoConverter::toCustomerAccount)
+                        .map(converter::toCustomerAccount)
                         .collect(Collectors.toSet())
         );
     }

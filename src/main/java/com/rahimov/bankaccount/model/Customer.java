@@ -22,7 +22,7 @@ public class Customer {
     String name;
     String surname;
 
-    @OneToMany(mappedBy = "customer_id",fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY )
     Set<Account> accounts;
 
     @Override

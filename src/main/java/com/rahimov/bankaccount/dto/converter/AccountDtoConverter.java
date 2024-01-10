@@ -1,8 +1,7 @@
 package com.rahimov.bankaccount.dto.converter;
 
-import com.rahimov.bankaccount.dto.AccountDto;
-import com.rahimov.bankaccount.dto.CustomerAccountDto;
-import com.rahimov.bankaccount.dto.TransactionAccountDto;
+import com.rahimov.bankaccount.dto.response.AccountDto;
+import com.rahimov.bankaccount.dto.response.TransactionAccountDto;
 import com.rahimov.bankaccount.model.Account;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -27,23 +26,4 @@ public class AccountDtoConverter {
                         .collect(Collectors.toSet())
         );
     }
-    public TransactionAccountDto toTransactionAccountDto(Account account) {
-        return new TransactionAccountDto(account.getId(),
-                account.getBalance(),
-                account.getCreationDate(),
-                customerDtoConverter.toAccountCustomer(account.getCustomer())
-        );
-    }
-    public CustomerAccountDto toCustomerAccount(Account account) {
-        return new CustomerAccountDto(account.getId(),
-                account.getBalance(),
-                account.getCreationDate(),
-                account.getTransactions().stream()
-                        .map(transactionDtoConverter::toAccountTransactionDto)
-                        .collect(Collectors.toSet())
-        );
-    }
-
-
-
 }

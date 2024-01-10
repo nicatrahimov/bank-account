@@ -1,6 +1,5 @@
-package com.rahimov.bankaccount.dto;
+package com.rahimov.bankaccount.dto.response;
 
-import com.rahimov.bankaccount.model.Account;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
